@@ -52,10 +52,25 @@
                     display: none !important;
                 }
                 
-                /* Hide carousel arrows di mobile */
+                /* Biarkan carousel arrows tampil tapi kecil */
                 .carousel-control-prev,
                 .carousel-control-next {
-                    display: none !important;
+                    display: flex !important;
+                opacity: 0.5;
+                    width: 40px;
+                    height: 40px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(0,0,0,0.3);
+                    border-radius: 50%;
+                }
+    
+                .carousel-control-prev {
+                    left: 10px;
+                }
+    
+                .carousel-control-next {
+                    right: 10px;
                 }
             }
             
@@ -845,7 +860,7 @@
         
         <!-- Carousel Start -->
         <div class="container-fluid px-0">
-            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-touch="true">
                 <!-- Indicators dihilangkan sesuai permintaan -->
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
@@ -1902,6 +1917,7 @@
         </script>
     </body>
 </html>
+
 
 
 
