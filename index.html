@@ -47,9 +47,9 @@
                     overflow-y: auto;
                 }
                 
-                /* Fix untuk counter di mobile */
-                .counter-value {
-                    font-size: 1.8rem !important;
+                /* Hide carousel indicators di semua device */
+                .carousel-indicators {
+                    display: none !important;
                 }
                 
                 /* Hide carousel arrows di mobile */
@@ -57,34 +57,13 @@
                 .carousel-control-next {
                     display: none !important;
                 }
-                
-                /* Carousel indicators lebih kecil di mobile */
-                .carousel-indicators li {
-                    width: 10px !important;
-                    height: 10px !important;
-                    margin: 0 4px !important;
-                }
             }
             
             @media (max-width: 576px) {
-                /* Fix untuk judul utama */
-                .display-1 {
-                    font-size: 2rem !important;
-                }
-                
                 /* Fix untuk container padding */
                 .container {
                     padding-left: 15px !important;
                     padding-right: 15px !important;
-                }
-                
-                /* Counter lebih kecil di mobile kecil */
-                .counter-value {
-                    font-size: 1.5rem !important;
-                }
-                
-                .counter h2 {
-                    min-width: 60px !important;
                 }
             }
             
@@ -335,25 +314,38 @@
                 }
             }
             
-            /* Responsive Carousel */
+            /* Responsive Carousel - FIX untuk judul tidak tertutup navbar */
             @media (max-width: 992px) {
-                /* Judul carousel mobile */
+                /* Padding extra untuk carousel agar tidak tertutup navbar */
+                .carousel-caption {
+                    padding-top: 60px !important;
+                }
+                
+                /* Judul carousel mobile - TAMPILKAN DAN JELAS */
                 .carousel-content h1.text-white.display-1 {
                     font-size: 1.8rem !important;
                     line-height: 1.2;
                     margin-bottom: 1rem !important;
+                    padding-top: 0 !important;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
                 }
                 
                 .carousel-content p.text-white.fs-5 {
                     font-size: 0.9rem !important;
                     margin-bottom: 1.5rem !important;
                     line-height: 1.4;
+                    text-shadow: 1px 1px 3px rgba(0,0,0,0.5) !important;
+                    display: block !important;
                 }
                 
-                /* Tombol carousel mobile */
+                /* Tombol carousel mobile - TAMPILKAN SEMUA */
                 .carousel-content .d-flex {
                     flex-direction: column !important;
                     gap: 0.5rem !important;
+                    margin-top: 1rem !important;
                 }
                 
                 .carousel-content .me-2 {
@@ -368,54 +360,32 @@
                     max-width: 280px !important;
                     margin: 0 auto !important;
                     display: block !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
                 }
                 
                 /* Carousel item height mobile */
                 .carousel-item {
-                    min-height: 350px !important;
+                    min-height: 400px !important;
                 }
                 
                 .carousel-item img {
-                    min-height: 350px !important;
+                    min-height: 400px !important;
                     object-fit: cover !important;
                 }
             }
             
-            /* Responsive Counter */
+            /* Responsive Counter - SEMBUNYIKAN DI MOBILE */
             @media (max-width: 768px) {
                 .container-fluid.bg-secondary {
-                    padding: 1rem 0 !important;
+                    display: none !important;
                 }
-                
-                .counter {
-                    padding: 0.5rem 0 !important;
-                    margin-bottom: 1rem;
-                    text-align: center;
-                }
-                
-                .counter h2 {
-                    font-size: 1.8rem !important;
-                    min-width: 70px !important;
-                    margin-right: 0.5rem !important;
-                }
-                
-                .counter .fw-bold.fs-5 {
-                    font-size: 0.9rem !important;
-                    margin-bottom: 0.1rem !important;
-                }
-                
-                .counter .text-white-50.fs-6 {
-                    font-size: 0.8rem !important;
-                }
-                
-                .d-flex.counter {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .counter .me-3 {
-                    margin-right: 0 !important;
-                    margin-bottom: 0.5rem;
+            }
+            
+            /* Desktop - TAMPILKAN COUNTER */
+            @media (min-width: 769px) {
+                .container-fluid.bg-secondary {
+                    display: block !important;
                 }
             }
             
@@ -438,17 +408,20 @@
                     margin-bottom: 1rem !important;
                 }
                 
-                /* Gambar latar belakang mobile */
+                /* Hanya tampilkan foto kulonprogo-map.jpg di mobile */
                 .col-lg-5 img {
-                    margin-bottom: 15% !important;
-                    width: 90% !important;
-                    margin-left: 5% !important;
+                    margin-bottom: 0 !important;
+                    width: 100% !important;
+                    margin-left: 0 !important;
                 }
                 
                 .position-absolute {
-                    width: 70% !important;
-                    left: 15% !important;
-                    top: 20% !important;
+                    display: none !important; /* Sembunyikan foto kedua */
+                }
+                
+                .h-100.position-relative {
+                    height: auto !important;
+                    margin-bottom: 2rem !important;
                 }
                 
                 /* Button mobile */
@@ -459,6 +432,22 @@
                     max-width: 200px;
                     margin: 0 auto;
                     display: block;
+                }
+            }
+            
+            /* Desktop - tampilkan kedua gambar */
+            @media (min-width: 769px) {
+                .col-lg-5 img {
+                    margin-bottom: 25% !important;
+                    width: 75% !important;
+                    margin-left: 0 !important;
+                }
+                
+                .position-absolute {
+                    display: block !important;
+                    width: 75% !important;
+                    left: 25% !important;
+                    top: 25% !important;
                 }
             }
             
@@ -591,6 +580,72 @@
                 }
             }
             
+            /* Responsive Sumber Data - SUSUNAN 2-2 DI MOBILE */
+            @media (max-width: 768px) {
+                .logo-sumber-data {
+                    width: 60px !important;
+                    height: 60px !important;
+                    padding: 8px !important;
+                }
+                
+                .text-muted.small {
+                    font-size: 0.8rem !important;
+                }
+                
+                /* Susunan 2-2 untuk logo sumber data di mobile */
+                .row.justify-content-center.g-4 {
+                    justify-content: center !important;
+                }
+                
+                .col-md-4.col-lg-2.col-sm-6 {
+                    flex: 0 0 50% !important; /* 2 kolom per baris */
+                    max-width: 50% !important;
+                    margin-bottom: 1.5rem !important;
+                }
+                
+                /* Susunan khusus: BPS di tengah atas, lainnya berjejer 2-2 */
+                .bg-light .row.justify-content-center.g-4 {
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    align-items: center !important;
+                }
+                
+                /* BPS tetap full width di tengah */
+                .bg-light .row.justify-content-center.g-4 > div:nth-child(1) {
+                    flex: 0 0 100% !important;
+                    max-width: 100% !important;
+                    order: 1 !important;
+                    margin-bottom: 0.5rem !important;
+                }
+                
+                /* BIG dan Kulon Progo - baris pertama */
+                .bg-light .row.justify-content-center.g-4 > div:nth-child(2),
+                .bg-light .row.justify-content-center.g-4 > div:nth-child(3) {
+                    order: 2 !important;
+                    margin-top: 0 !important;
+                }
+                
+                /* OSM dan Google Maps - baris kedua */
+                .bg-light .row.justify-content-center.g-4 > div:nth-child(4),
+                .bg-light .row.justify-content-center.g-4 > div:nth-child(5) {
+                    order: 3 !important;
+                }
+            }
+            
+            /* Desktop - tampilkan semua logo dalam 1 baris */
+            @media (min-width: 769px) {
+                .col-md-4.col-lg-2.col-sm-6 {
+                    flex: 0 0 auto !important;
+                    max-width: 20% !important;
+                }
+                
+                .bg-light .row.justify-content-center.g-4 {
+                    display: flex !important;
+                    flex-wrap: nowrap !important;
+                    justify-content: center !important;
+                }
+            }
+            
             /* Responsive Kontak */
             @media (max-width: 768px) {
                 #komentar h1 {
@@ -618,19 +673,6 @@
                     padding: 0.75rem 1.5rem !important;
                     font-size: 0.9rem;
                     width: 100%;
-                }
-            }
-            
-            /* Responsive Sumber Data */
-            @media (max-width: 768px) {
-                .logo-sumber-data {
-                    width: 60px !important;
-                    height: 60px !important;
-                    padding: 8px !important;
-                }
-                
-                .text-muted.small {
-                    font-size: 0.8rem !important;
                 }
             }
             
@@ -757,6 +799,11 @@
                     loading: lazy;
                 }
             }
+            
+            /* Hilangkan dots carousel di semua device */
+            .carousel-indicators {
+                display: none !important;
+            }
         </style>
     </head>
 
@@ -783,9 +830,9 @@
                             <a href="#latar-belakang" class="nav-item nav-link">Latar Belakang</a>
                             <a href="#potensi-desa" class="nav-item nav-link">Potensi Desa</a>
                             <a href="#peta-potensi" class="nav-item nav-link">Peta Potensi</a>
-                            <a href="#tentang-kami" class="nav-item nav-link">Tentang Kami</a>
-                            <a href="#komentar" class="nav-item nav-link">Uji Usabilitas</a>
-                            <a href="https://prgg-west-prog-java-gd22.vercel.app/login" target="_blank" rel="noopener noreferrer" class="nav-item nav-link ms-2"
+                            <a href="#tentang-kami" class="nav-item nav-link">Uji Usabilitas</a>
+                            <a href="#komentar" class="nav-item nav-link">Tentang Kami</a>
+                            <a href="https://prgg-west-prog-java-gd22.vercel.app/login" class="nav-item nav-link ms-2"
                                style="background-color: white;color: #032BF3 !important; border-radius: 25px; padding: 8px 20px !important; margin-left: 10px; font-weight: 600; border: 2px solid white;">
                                 Login
                             </a>
@@ -799,10 +846,7 @@
         <!-- Carousel Start -->
         <div class="container-fluid px-0">
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                </ol>
+                <!-- Indicators dihilangkan sesuai permintaan -->
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <img src="img/carousel-1.jpg" class="img-fluid" alt="Pemetaan Potensi Ekonomi Desa">
@@ -811,17 +855,17 @@
                                 <h1 class="text-white display-1 mb-4 animated fadeInRight">Pemetaan Potensi Ekonomi Desa</h1>
                                 <p class="mb-4 text-white fs-5 animated fadeInDown">Menyajikan informasi potensi ekonomi desa dalam berbagai aspek secara terpadu melalui peta interaktif.</p>
                                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/qgis_eko" target="_blank" rel="noopener noreferrer" class="me-2">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/qgis_eko" class="me-2">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">
                                             Lihat Peta
                                         </button>
                                     </a>
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/Ekonomi" target="_blank" rel="noopener noreferrer" class="me-2">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/Ekonomi" class="me-2">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-secondary rounded-pill animated fadeInLeft" style="background-color: #032BF3; border-color: #032BF3; color: white;">
                                             Produk Ekonomi
                                         </button>
                                     </a>
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/data" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/data">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-secondary rounded-pill animated fadeInLeft" style="background-color: #032BF3; border-color: #032BF3; color: white;">
                                             Grafik Jumlah Pengunjung
                                         </button>
@@ -837,17 +881,17 @@
                                 <h1 class="text-white display-1 mb-4 animated fadeInLeft">Pemetaan Potensi Pariwisata Desa</h1>
                                 <p class="mb-4 text-white fs-5 animated fadeInDown">Peta interaktif terpadu untuk melihat jenis wisata, persebaran, serta daya tarik destinasi wisata yang ada.</p>
                                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/qgis_parwi" target="_blank" rel="noopener noreferrer" class="me-2">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/qgis_parwi" class="me-2">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">
                                             Lihat Peta
                                         </button>
                                     </a>
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/Pariwisata" target="_blank" rel="noopener noreferrer" class="me-2">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/Pariwisata" class="me-2">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-secondary rounded-pill animated fadeInLeft" style="background-color: #032BF3; border-color: #032BF3; color: white;">
                                             Produk Pariwisata
                                         </button>
                                     </a>
-                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/data" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://prgg-west-prog-java-gd22.vercel.app/data">
                                         <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-secondary rounded-pill animated fadeInLeft" style="background-color: #032BF3; border-color: #032BF3; color: white;">
                                             Grafik Jumlah Pengunjung
                                         </button>
@@ -869,8 +913,8 @@
         </div>
         <!-- Carousel End -->
 
-        <!-- Fact Start -->
-        <div class="container-fluid bg-secondary py-4">
+        <!-- Fact Start - Hanya ditampilkan di desktop -->
+        <div class="container-fluid bg-secondary py-4 d-none d-md-block">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay=".1s">
@@ -913,8 +957,10 @@
                 <div class="row g-4">
                     <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
                         <div class="h-100 position-relative">
-                            <img src="img/kulonprogo-map.jpg" class="img-fluid w-75 rounded" alt="Peta Kabupaten Kulon Progo" style="margin-bottom: 25%;">
-                            <div class="position-absolute w-75" style="top: 25%; left: 25%;">
+                            <!-- Gambar utama yang selalu ditampilkan -->
+                            <img src="img/kulonprogo-map.jpg" class="img-fluid w-100 rounded" alt="Peta Kabupaten Kulon Progo">
+                            <!-- Gambar kedua hanya ditampilkan di desktop -->
+                            <div class="position-absolute d-none d-lg-block" style="top: 25%; left: 25%; width: 75%;">
                                 <img src="img/potensi-desa.jpg" class="img-fluid w-100 rounded" alt="Potensi Desa Kulon Progo">
                             </div>
                         </div>
@@ -1361,46 +1407,46 @@
                 <div class="text-center mx-auto pb-4 wow fadeIn" data-wow-delay=".3s" style="max-width: 800px;">
                     <h5 class="text-primary mb-4">SUMBER DATA</h5>
                     <div class="row justify-content-center g-4">
-                        <!-- BPS -->
-                        <div class="col-md-4 col-lg-2 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+                        <!-- BPS - Full width di mobile, kecil di desktop -->
+                        <div class="col-md-4 col-lg-2 col-sm-12 col-12 wow fadeIn" data-wow-delay=".2s">
                             <div class="text-center">
-                                <a href="https://www.bps.go.id/id" target="_blank" rel="noopener noreferrer" class="d-block mb-2">
+                                <a href="https://www.bps.go.id/id" class="d-block mb-2">
                                     <img src="img/logo/bps-logo.png" alt="BPS" class="img-fluid logo-sumber-data rounded-circle shadow-sm">
                                 </a>
                                 <span class="text-muted small">BPS</span>
                             </div>
                         </div>
-                        <!-- BIG -->
-                        <div class="col-md-4 col-lg-2 col-sm-6 wow fadeIn" data-wow-delay=".3s">
+                        <!-- BIG - Berjejer dengan Kulon Progo di mobile -->
+                        <div class="col-md-4 col-lg-2 col-sm-6 col-6 wow fadeIn" data-wow-delay=".3s">
                             <div class="text-center">
-                                <a href="https://tanahair.indonesia.go.id/portal-web/" target="_blank" rel="noopener noreferrer" class="d-block mb-2">
+                                <a href="https://tanahair.indonesia.go.id/portal-web/" class="d-block mb-2">
                                     <img src="img/logo/big-logo.png" alt="BIG" class="img-fluid logo-sumber-data rounded-circle shadow-sm">
                                 </a>
                                 <span class="text-muted small">BIG</span>
                             </div>
                         </div>
-                        <!-- Kulon Progo -->
-                        <div class="col-md-4 col-lg-2 col-sm-6 wow fadeIn" data-wow-delay=".4s">
+                        <!-- Kulon Progo - Berjejer dengan BIG di mobile -->
+                        <div class="col-md-4 col-lg-2 col-sm-6 col-6 wow fadeIn" data-wow-delay=".4s">
                             <div class="text-center">
-                                <a href="https://data.dukcapil.kulonprogokab.go.id/" target="_blank" rel="noopener noreferrer" class="d-block mb-2">
+                                <a href="https://data.dukcapil.kulonprogokab.go.id/" class="d-block mb-2">
                                     <img src="img/logo/kulonprogo-logo.png" alt="Kulon Progo" class="img-fluid logo-sumber-data rounded-circle shadow-sm">
                                 </a>
                                 <span class="text-muted small">Kulon Progo</span>
                             </div>
                         </div>
-                        <!-- OSM -->
-                        <div class="col-md-4 col-lg-2 col-sm-6 wow fadeIn" data-wow-delay=".5s">
+                        <!-- OSM - Berjejer dengan Google Maps di mobile -->
+                        <div class="col-md-4 col-lg-2 col-sm-6 col-6 wow fadeIn" data-wow-delay=".5s">
                             <div class="text-center">
-                                <a href="https://www.openstreetmap.org/#map=5/-2.55/118.02" target="_blank" rel="noopener noreferrer" class="d-block mb-2">
+                                <a href="https://www.openstreetmap.org/#map=5/-2.55/118.02" class="d-block mb-2">
                                     <img src="img/logo/osm-logo.png" alt="OpenStreetMap" class="img-fluid logo-sumber-data rounded-circle shadow-sm">
                                 </a>
                                 <span class="text-muted small">OpenStreetMap</span>
                             </div>
                         </div>
-                        <!-- Google Maps -->
-                        <div class="col-md-4 col-lg-2 col-sm-6 wow fadeIn" data-wow-delay=".6s">
+                        <!-- Google Maps - Berjejer dengan OSM di mobile -->
+                        <div class="col-md-4 col-lg-2 col-sm-6 col-6 wow fadeIn" data-wow-delay=".6s">
                             <div class="text-center">
-                                <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="d-block mb-2">
+                                <a href="https://www.google.com/maps" class="d-block mb-2">
                                     <img src="img/logo/google-maps-logo.png" alt="Google Maps" class="img-fluid logo-sumber-data rounded-circle shadow-sm">
                                 </a>
                                 <span class="text-muted small">Google Maps</span>
@@ -1429,8 +1475,6 @@
                             <p class="mb-5">Masukan Anda akan membantu kami meningkatkan kualitas website ini.</p>
                     
                             <a href="https://docs.google.com/forms/d/1IyYKeGj0UEoZGteKHpOA_BoujCuLDOQFWEYM22uoJ4E/edit" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
                             class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
                                 <i class="fas fa-external-link-alt me-2"></i> Uji Usabilitas
                             </a>
@@ -1515,8 +1559,6 @@
         </section>
         <!-- Team Section End -->
         
-
-        
         <!-- Footer Start -->
         <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
             <div class="container pt-4 pb-4">
@@ -1597,52 +1639,54 @@
             });
 
             /***************************************************
-             * 2. COUNTER ANIMATION
+             * 2. COUNTER ANIMATION - Hanya untuk desktop
              ***************************************************/
-            const counters = document.querySelectorAll('.counter-value');
-            if (counters.length > 0) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const counter = entry.target;
-                            const target = parseFloat(counter.getAttribute('data-target'));
-                            const duration = 2000;
-                            const step = target / (duration / 16);
-                            let current = 0;
-                            
-                            const updateCounter = () => {
-                                current += step;
-                                if (current < target) {
-                                    // Format angka berdasarkan tipe data
-                                    if (target === 758994) {
-                                        // Format dengan titik untuk ribuan
-                                        counter.textContent = Math.floor(current).toLocaleString('id-ID');
+            if (window.innerWidth >= 768) {
+                const counters = document.querySelectorAll('.counter-value');
+                if (counters.length > 0) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const counter = entry.target;
+                                const target = parseFloat(counter.getAttribute('data-target'));
+                                const duration = 2000;
+                                const step = target / (duration / 16);
+                                let current = 0;
+                                
+                                const updateCounter = () => {
+                                    current += step;
+                                    if (current < target) {
+                                        // Format angka berdasarkan tipe data
+                                        if (target === 758994) {
+                                            // Format dengan titik untuk ribuan
+                                            counter.textContent = Math.floor(current).toLocaleString('id-ID');
+                                        } else {
+                                            // Format dengan koma untuk desimal
+                                            counter.textContent = current.toFixed(2).replace('.', ',');
+                                        }
+                                        setTimeout(updateCounter, 16);
                                     } else {
-                                        // Format dengan koma untuk desimal
-                                        counter.textContent = current.toFixed(2).replace('.', ',');
+                                        // Final value dengan format yang benar
+                                        if (target === 758994) {
+                                            counter.textContent = target.toLocaleString('id-ID');
+                                        } else if (target === 4.77) {
+                                            counter.textContent = target.toFixed(2).replace('.', ',');
+                                        } else {
+                                            counter.textContent = target.toFixed(2).replace('.', ',');
+                                        }
                                     }
-                                    setTimeout(updateCounter, 16);
-                                } else {
-                                    // Final value dengan format yang benar
-                                    if (target === 758994) {
-                                        counter.textContent = target.toLocaleString('id-ID');
-                                    } else if (target === 4.77) {
-                                        counter.textContent = target.toFixed(2).replace('.', ',');
-                                    } else {
-                                        counter.textContent = target.toFixed(2).replace('.', ',');
-                                    }
-                                }
-                            };
-                            
-                            updateCounter();
-                            observer.unobserve(counter);
-                        }
+                                };
+                                
+                                updateCounter();
+                                observer.unobserve(counter);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    
+                    counters.forEach(counter => {
+                        observer.observe(counter);
                     });
-                }, { threshold: 0.5 });
-                
-                counters.forEach(counter => {
-                    observer.observe(counter);
-                });
+                }
             }
 
             /***************************************************
@@ -1684,6 +1728,13 @@
              ***************************************************/
             function hideCarouselControlsOnMobile() {
                 const carouselControls = document.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+                const carouselIndicators = document.querySelectorAll('.carousel-indicators');
+                
+                // Hilangkan dots carousel di semua device
+                carouselIndicators.forEach(indicator => {
+                    indicator.style.display = 'none';
+                });
+                
                 if (window.innerWidth <= 768) {
                     carouselControls.forEach(control => {
                         control.style.display = 'none';
@@ -1758,22 +1809,84 @@
             
             window.addEventListener('scroll', updateActiveNavLink);
             updateActiveNavLink(); // Initial call
+
+            /***************************************************
+             * 9. HAPUS TARGET="_BLANK" DARI SEMUA LINK EXTERNAL
+             * Agar tetap di tab yang sama (bukan tab baru)
+             ***************************************************/
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                // Hanya untuk link external (tidak termasuk anchor links)
+                if (!link.getAttribute('href').startsWith('#') && 
+                    !link.getAttribute('href').includes(window.location.hostname)) {
+                    link.removeAttribute('target');
+                    link.removeAttribute('rel');
+                }
+            });
+
+            /***************************************************
+             * 10. FIX CAROUSEL CONTENT DI MOBILE - Pastikan judul terlihat
+             ***************************************************/
+            function fixCarouselForMobile() {
+                if (window.innerWidth <= 992) {
+                    const carouselContents = document.querySelectorAll('.carousel-content');
+                    carouselContents.forEach(content => {
+                        // Pastikan semua elemen terlihat
+                        const title = content.querySelector('h1');
+                        const description = content.querySelector('p');
+                        const buttons = content.querySelectorAll('button');
+                        
+                        if (title) {
+                            title.style.opacity = '1';
+                            title.style.visibility = 'visible';
+                            title.style.display = 'block';
+                        }
+                        
+                        if (description) {
+                            description.style.opacity = '1';
+                            description.style.visibility = 'visible';
+                            description.style.display = 'block';
+                        }
+                        
+                        buttons.forEach(button => {
+                            button.style.opacity = '1';
+                            button.style.visibility = 'visible';
+                            button.style.display = 'block';
+                        });
+                    });
+                    
+                    // Tambahkan padding atas extra untuk carousel caption
+                    const carouselCaptions = document.querySelectorAll('.carousel-caption');
+                    carouselCaptions.forEach(caption => {
+                        caption.style.paddingTop = '60px';
+                    });
+                }
+            }
+            
+            // Jalankan saat load dan resize
+            fixCarouselForMobile();
+            window.addEventListener('resize', fixCarouselForMobile);
         });
 
         /***************************************************
-         * 9. BACK TO TOP BUTTON
+         * 11. BACK TO TOP BUTTON
          ***************************************************/
         window.addEventListener('scroll', function() {
-            const backToTopButton = document.createElement('button');
-            backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-            backToTopButton.className = 'back-to-top btn btn-lg btn-primary';
-            backToTopButton.style.display = 'none';
-            backToTopButton.style.position = 'fixed';
-            backToTopButton.style.bottom = '30px';
-            backToTopButton.style.right = '30px';
-            backToTopButton.style.zIndex = '99';
-            
+            // Cek jika button sudah ada
             if (!document.querySelector('.back-to-top')) {
+                const backToTopButton = document.createElement('button');
+                backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                backToTopButton.className = 'back-to-top btn btn-lg btn-primary';
+                backToTopButton.style.display = 'none';
+                backToTopButton.style.position = 'fixed';
+                backToTopButton.style.bottom = '30px';
+                backToTopButton.style.right = '30px';
+                backToTopButton.style.zIndex = '99';
+                backToTopButton.style.borderRadius = '50%';
+                backToTopButton.style.width = '50px';
+                backToTopButton.style.height = '50px';
+                backToTopButton.style.padding = '0';
+                backToTopButton.style.fontSize = '1.2rem';
+                
                 document.body.appendChild(backToTopButton);
             }
             
